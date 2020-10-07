@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="216.0" prefWidth="232.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Singup">
+   <children>
+      <Button layoutX="90.0" layoutY="177.0" mnemonicParsing="false" text="SIGN UP" />
+   </children>
+</AnchorPane>
