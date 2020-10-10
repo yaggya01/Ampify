@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="startBT" layoutX="-1.0" layoutY="1.0" mnemonicParsing="false" onAction="#lbts" prefHeight="25.0" prefWidth="200.0" text="START" />
+            <TextArea fx:id="musicTA" layoutY="26.0" prefHeight="141.0" prefWidth="200.0" />
+            <TextField fx:id="musicTF" layoutY="167.0" prefHeight="32.0" prefWidth="97.0" />
+            <Button fx:id="playBT" layoutX="100.0" layoutY="167.0" mnemonicParsing="false" onAction="#lbtp" prefHeight="32.0" prefWidth="49.0" text="PLAY" />
+            <Button fx:id="stopBT" layoutX="150.0" layoutY="167.0" mnemonicParsing="false" onAction="#lbtstop" prefHeight="32.0" prefWidth="50.0" text="STOP" />
+         </children></AnchorPane>
+   </children>
+</GridPane>

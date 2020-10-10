@@ -25,7 +25,15 @@ public class Controller {
         stage.setScene(new Scene(root,300, 275));
     }
     public void signBTListener(ActionEvent actionEvent)
-    {
+    {   Parent root=null;
         System.out.println("Sign up");
+        Stage stage = (Stage) signBT.getScene().getWindow();
+        try{
+            root = FXMLLoader.load(getClass().getResource("./singup.fxml"));
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+        stage.setScene(new Scene(root,300, 275));
     }
 }
