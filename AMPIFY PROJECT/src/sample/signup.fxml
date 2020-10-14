@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Signup">
+   <children>
+      <Button fx:id="backBT" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#ListenerbBT" prefHeight="38.0" prefWidth="80.0" text="BACK" />
+      <TextField fx:id="userTF" layoutX="20.0" layoutY="94.0" prefHeight="64.0" prefWidth="553.0" />
+      <TextField fx:id="emailTF" layoutX="19.0" layoutY="186.0" prefHeight="64.0" prefWidth="553.0" />
+      <PasswordField fx:id="passTF" layoutX="19.0" layoutY="282.0" prefHeight="64.0" prefWidth="554.0" />
+      <Button fx:id="signBT" layoutX="506.0" layoutY="355.0" mnemonicParsing="false" onAction="#ListenersBT" prefHeight="32.0" prefWidth="69.0" text="SIGNUP" />
+      <Label layoutX="20.0" layoutY="62.0" prefHeight="32.0" prefWidth="166.0" text="USERNAME" />
+      <Label layoutX="20.0" layoutY="158.0" prefHeight="32.0" prefWidth="166.0" text="EMAIL ID" />
+      <Label layoutX="20.0" layoutY="250.0" prefHeight="32.0" prefWidth="166.0" text="PASSWORD" />
+   </children>
+</AnchorPane>

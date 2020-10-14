@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Pg1">
+   <children>
+      <Button fx:id="songBT" layoutX="63.0" layoutY="60.0" mnemonicParsing="false" onAction="#ListenerSongBT" prefHeight="71.0" prefWidth="463.0" text="ALL SONGS" />
+   </children>
+</AnchorPane>
