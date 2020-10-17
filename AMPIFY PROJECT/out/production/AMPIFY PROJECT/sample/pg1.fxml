@@ -3,9 +3,12 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Pg1">
+<AnchorPane prefHeight="425.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Pg1">
    <children>
-      <Button fx:id="songBT" layoutX="63.0" layoutY="60.0" mnemonicParsing="false" onAction="#ListenerSongBT" prefHeight="71.0" prefWidth="463.0" text="ALL SONGS" />
+      <Button fx:id="songBT" layoutX="63.0" layoutY="14.0" mnemonicParsing="false" onAction="#ListenerSongBT" prefHeight="71.0" prefWidth="463.0" text="ALL SONGS" />
+      <Button fx:id="oflineBT" layoutX="63.0" layoutY="95.0" mnemonicParsing="false" onAction="#ListenerOfBT" prefHeight="71.0" prefWidth="463.0" text="OFLINE SONG" />
+      <Button fx:id="createBT" layoutX="63.0" layoutY="177.0" mnemonicParsing="false" onAction="#ListenerCBT" prefHeight="71.0" prefWidth="463.0" text="CREATE PLALIST" />
+      <Button fx:id="playBT" layoutX="63.0" layoutY="260.0" mnemonicParsing="false" onAction="#ListenerPBT" prefHeight="71.0" prefWidth="463.0" text="PLAYLIST" />
+      <Button fx:id="historyBT" layoutX="63.0" layoutY="338.0" mnemonicParsing="false" onAction="#lbth" prefHeight="71.0" prefWidth="463.0" text="HISTORY" />
    </children>
 </AnchorPane>

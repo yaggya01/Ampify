@@ -18,6 +18,8 @@ public class Login {
     public TextField userTF;
     public TextField passTF;
     public Label label;
+    public static String User;
+    private static Socket socket;
     public void ListenerbBT(ActionEvent actionEvent){
         System.out.println("BACK");
         Parent root=null;
@@ -32,11 +34,12 @@ public class Login {
     }
     public void ListenerlBT(ActionEvent actionEvent){
         System.out.println("USERNAME: "+userTF.getText()+"\nPASSWORD: "+passTF.getText());
+        User = userTF.getText();
         new Thread(new Runnable() {
             @Override
             public void run() {
                 try{
-                    Socket socket = new Socket("localhost",5400);//ip adress and port
+                    socket = new Socket("localhost",5400);//ip adress and port
                     BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
                     Platform.runLater(new Runnable() {
                         @Override
@@ -104,4 +107,11 @@ public class Login {
             }
         }).start();
     }
+    public String getUserName(){
+        return User;
+    }
+    public Socket getSocket(){
+        return socket;
+    }
+
 }

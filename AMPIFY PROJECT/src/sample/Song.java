@@ -43,7 +43,7 @@ public class Song implements Runnable{
         }
     }
     public void sendMessage(Socket socket, String name, ObjectOutputStream op)throws IOException{
-        op.writeObject(new Message_Music(name));
+        op.writeObject(new Message_Music(name,0));
         op.flush();
         return;
     }
