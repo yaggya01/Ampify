@@ -10,7 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.*;
 import java.net.Socket;
-
+import Message.*;
 public class Signup {
     public Button backBT;
     public Button signBT;
@@ -31,6 +31,20 @@ public class Signup {
     }
     public void ListenersBT(ActionEvent actionEvent){
         System.out.println("Signup");
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Socket socket = new Socket("localhost",5402);//ip adress and port
+                    ObjectOutputStream op = new ObjectOutputStream(socket.getOutputStream());
+                    op.writeObject(new Message_Music(userTF.getText(),6));
+                    op.flush();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }).start();
         new Thread(new Runnable() {
             @Override
             public void run() {

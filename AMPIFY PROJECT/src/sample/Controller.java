@@ -22,7 +22,7 @@ public class Controller {
         catch (IOException e){
             e.printStackTrace();
         }
-        stage.setScene(new Scene(root,300, 275));
+        stage.setScene(new Scene(root,600, 400));
     }
     public void ListenerSBT(ActionEvent actionEvent){
         System.out.println("SIGNUP");
@@ -34,7 +34,7 @@ public class Controller {
         catch (IOException e){
             e.printStackTrace();
         }
-        stage.setScene(new Scene(root,300, 275));
+        stage.setScene(new Scene(root,600, 400));
     }
 
 

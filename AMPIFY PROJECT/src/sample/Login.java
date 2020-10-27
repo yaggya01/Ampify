@@ -11,6 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.*;
 import java.net.Socket;
+import Message.*;
 
 public class Login {
     public Button backBT;
@@ -70,7 +71,7 @@ public class Login {
                                         @Override
                                         public void run() {
                                             label.setText(k.n);
-                                            if(k.n.equals("LOGED IN"));
+                                            if(k.n.equals("LOGED IN"))
                                             {
                                                 System.out.println("BACK");
                                                 Parent root=null;
@@ -81,7 +82,7 @@ public class Login {
                                                 catch (IOException e){
                                                     e.printStackTrace();
                                                 }
-                                                stage.setScene(new Scene(root,300, 275));
+                                                stage.setScene(new Scene(root,600, 400));
                                             }
                                         }
                                     });

@@ -18,6 +18,7 @@ public class Pg1 {
     public Button createBT;
     public Button playBT;
     public Button historyBT;
+    public Button editBT;
     public void ListenerSongBT(ActionEvent actionEvent){
         System.out.println("All Songs");
         Parent root=null;
@@ -28,7 +29,7 @@ public class Pg1 {
         catch (IOException e){
             e.printStackTrace();
         }
-        stage.setScene(new Scene(root,300, 275));
+        stage.setScene(new Scene(root,600, 400));
     }
 
     public void ListenerOfBT(ActionEvent actionEvent){
@@ -41,7 +42,7 @@ public class Pg1 {
         catch (IOException e){
             e.printStackTrace();
         }
-        stage.setScene(new Scene(root,300, 275));
+        stage.setScene(new Scene(root,600, 400));
     }
 
     public void ListenerCBT(ActionEvent actionEvent) {
@@ -54,7 +55,7 @@ public class Pg1 {
         catch (IOException e){
             e.printStackTrace();
         }
-        stage.setScene(new Scene(root,300, 275));
+        stage.setScene(new Scene(root,600, 400));
     }
 
     public void ListenerPBT(ActionEvent actionEvent) {
@@ -67,7 +68,7 @@ public class Pg1 {
         catch (IOException e){
             e.printStackTrace();
         }
-        stage.setScene(new Scene(root,300, 275));
+        stage.setScene(new Scene(root,600, 400));
     }
 
     public void lbth(ActionEvent actionEvent){
@@ -80,7 +81,19 @@ public class Pg1 {
         catch (IOException e){
             e.printStackTrace();
         }
-        stage.setScene(new Scene(root,300, 275));
+        stage.setScene(new Scene(root,600, 400));
+    }
+    public void Listeneredit(ActionEvent actionEvent){
+        System.out.println("Edit Playlist");
+        Parent root=null;
+        Stage stage = (Stage) oflineBT.getScene().getWindow();
+        try{
+            root = FXMLLoader.load(getClass().getResource("./editPL.fxml"));
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+        stage.setScene(new Scene(root,600, 400));
     }
 }
 

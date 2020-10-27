@@ -17,15 +17,19 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import Message.*;
 public class Pgcreate extends Login {
     public Button backBT;
     public Button startBT;
     public TextArea musicTA;
     public Button doneBT;
     public Button listBT;
-    public static String s="";
+    public static String s[]=new String[50];
+    public static int i=0;
     public TextField nameTF;
     public TextField musicTF;
+    public Socket socket;
+    ObjectOutputStream op;
     public void lbtb(ActionEvent actionEvent){
         System.out.println("All Songs");
         Parent root=null;
@@ -36,11 +40,10 @@ public class Pgcreate extends Login {
         catch (IOException e){
             e.printStackTrace();
         }
-        stage.setScene(new Scene(root,300, 275));
+        stage.setScene(new Scene(root,400, 600));
     }
 
     public void lbts(ActionEvent actionEvent){
-        s = this.getUserName()+";";
         System.out.println(s);
         new Thread(new Runnable() {
             @Override
@@ -72,31 +75,31 @@ public class Pgcreate extends Login {
 
     public void lbtd(ActionEvent actionEvent){
         System.out.println("Create");
+        ObjectOutputStream o = this.op;
         new Thread(new Runnable() {
             @Override
             public void run() {
+
+
                 try {
-                    final Socket socket = new Socket("127.0.0.1", 5402);
-                    ObjectOutputStream op = new ObjectOutputStream(socket.getOutputStream());
-                    sendMessage(socket, s, op);
-                }
-                catch(Exception e){
+                    o.writeObject(new Message_Plalist(nameTF.getText(),s,i));
+                    o.flush();
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
-            public void sendMessage(Socket socket, String name, ObjectOutputStream op)throws IOException{
-                op.writeObject(new Message_Music(name,1));
-                op.flush();
-                return;
-            }
+
         }).start();
 
     }
 
     public void lbtl(ActionEvent actionEvent)throws Exception {
-        s = s+nameTF.getText()+";";
+        socket = new Socket("127.0.0.1", 5402);
+        op = new ObjectOutputStream(socket.getOutputStream());
+        op.writeObject(new Message_Music(getUserName(),1));
     }
     public void lbtm(ActionEvent actionEvent)throws Exception {
-        s = s+musicTF.getText()+";";
+        s[i]=musicTF.getText();
+        i++;
     }
 }

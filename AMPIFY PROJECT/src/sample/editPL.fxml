@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="337.0" prefWidth="603.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.EditPL">
+    <children>
+        <Button fx:id="backBT" layoutX="14.0" layoutY="4.0" mnemonicParsing="false" onAction="#lbtb" prefHeight="36.0" prefWidth="78.0" text="BACK" />
+        <TextArea fx:id="listTA" layoutX="14.0" layoutY="40.0" prefHeight="92.0" prefWidth="295.0" />
+        <TextArea fx:id="songTA" layoutX="308.0" layoutY="40.0" prefHeight="200.0" prefWidth="295.0" />
+        <TextField fx:id="listTF" layoutX="14.0" layoutY="251.0" prefHeight="26.0" prefWidth="295.0" />
+        <TextField fx:id="musicTF" layoutX="308.0" layoutY="251.0" prefHeight="26.0" prefWidth="295.0" />
+        <Button fx:id="nameBT" layoutX="14.0" layoutY="286.0" mnemonicParsing="false" onAction="#lbtn" prefHeight="26.0" prefWidth="99.0" text="Enter Name" />
+        <Button fx:id="deleteBT" layoutX="308.0" layoutY="287.0" mnemonicParsing="false" onAction="#lbtd" text="DELETE" />
+        <Button fx:id="startBT" layoutX="92.0" layoutY="4.0" mnemonicParsing="false" onAction="#lbts" prefHeight="36.0" prefWidth="86.0" text="START" />
+      <TextArea fx:id="musicTA" layoutX="13.0" layoutY="132.0" prefHeight="108.0" prefWidth="295.0" />
+    </children>
+</AnchorPane>

@@ -5,13 +5,15 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PgSongs">
    <children>
-      <TextArea fx:id="musicTA" layoutX="14.0" layoutY="45.0" prefHeight="219.0" prefWidth="570.0" />
+      <TextArea fx:id="musicTA" layoutX="14.0" layoutY="45.0" prefHeight="219.0" prefWidth="285.0" />
       <TextField fx:id="musicTF" layoutX="14.0" layoutY="264.0" prefHeight="45.0" prefWidth="349.0" />
-      <Button fx:id="playBT" layoutX="364.0" layoutY="264.0" mnemonicParsing="false" onAction="#lbtp" prefHeight="46.0" prefWidth="108.0" text="PLAY" />
+      <Button fx:id="playBT" layoutX="364.0" layoutY="263.0" mnemonicParsing="false" onAction="#lbtp" prefHeight="46.0" prefWidth="73.0" text="PLAY" />
       <Button fx:id="startBT" layoutX="105.0" layoutY="3.0" mnemonicParsing="false" onAction="#lbts" prefHeight="38.0" prefWidth="479.0" text="START" />
       <Button fx:id="backBT" layoutX="14.0" layoutY="2.0" mnemonicParsing="false" onAction="#lbtb" prefHeight="38.0" prefWidth="87.0" text="BACK" />
-      <Label fx:id="subLB" layoutX="14.0" layoutY="310.0" prefHeight="80.0" prefWidth="570.0" />
-      <Button fx:id="addfrontBT" layoutX="364.0" layoutY="310.0" mnemonicParsing="false" onAction="#lbtf" prefHeight="46.0" prefWidth="237.0" text="ADD TO QUEUE FROUNT" />
-      <Button fx:id="addBT1" layoutX="364.0" layoutY="356.0" mnemonicParsing="false" onAction="#lbta" prefHeight="46.0" prefWidth="237.0" text="ADD TO QUEUE " />
+      <Button fx:id="likeBT" layoutX="438.0" layoutY="263.0" mnemonicParsing="false" onAction="#lbtl" prefHeight="46.0" prefWidth="74.0" text="LIKE" />
+      <Button fx:id="queueBT" layoutX="513.0" layoutY="309.0" mnemonicParsing="false" onAction="#lbtaq" prefHeight="72.0" prefWidth="74.0" text="  ADD&#10;QUEUE&#10;FRONT&#10;" />
+      <TextArea fx:id="queueTA" layoutX="301.0" layoutY="45.0" prefHeight="219.0" prefWidth="286.0" />
+      <Button fx:id="queue2BT" layoutX="438.0" layoutY="310.0" mnemonicParsing="false" onAction="#lbtaq2" prefHeight="72.0" prefWidth="74.0" text="   ADD&#10; QUEUE &#10;   END" />
+      <Button fx:id="nextBT" layoutX="513.0" layoutY="264.0" mnemonicParsing="false" onAction="#lbtn" prefHeight="46.0" prefWidth="74.0" text="NEXT" />
    </children>
 </AnchorPane>
