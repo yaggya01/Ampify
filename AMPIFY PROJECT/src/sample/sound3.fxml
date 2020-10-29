@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Sound3">
+    <children>
+        <AnchorPane prefHeight="200.0" prefWidth="400.0">
+            <children>
+                <Button fx:id="pauseBT" layoutY="140.0" mnemonicParsing="false" onAction="#lbtp" prefHeight="40.0" prefWidth="100.0" text="PAUSE" />
+                <Button fx:id="resumeBT" layoutX="100.0" layoutY="140.0" mnemonicParsing="false" onAction="#lbtr" prefHeight="40.0" prefWidth="100.0" text="RESUME" />
+                <Button fx:id="restartBT" layoutX="200.0" layoutY="140.0" mnemonicParsing="false" onAction="#lbtre" prefHeight="40.0" prefWidth="100.0" text="RESTART" />
+                <Button fx:id="stopBT" layoutX="300.0" layoutY="140.0" mnemonicParsing="false" onAction="#lbts" prefHeight="40.0" prefWidth="100.0" text="STOP" />
+                <Button fx:id="startBT" layoutX="14.0" layoutY="34.0" mnemonicParsing="false" onAction="#lbtstart" prefHeight="26.0" prefWidth="362.0" text="START" />
+                <Slider fx:id="timeBT" layoutX="14.0" layoutY="85.0" prefHeight="14.0" prefWidth="362.0" />
+                <Slider fx:id="volumeS" layoutX="379.0" layoutY="59.0" orientation="VERTICAL" prefHeight="81.0" prefWidth="14.0" />
+                <Label fx:id="subLB" layoutX="14.0" layoutY="5.0" prefHeight="26.0" prefWidth="362.0" />
+                <Label fx:id="timeLB" layoutX="22.0" layoutY="100.0" prefHeight="18.0" prefWidth="48.0" />
+            </children>
+        </AnchorPane>
+    </children>
+    <columnConstraints>
+        <ColumnConstraints />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints />
+    </rowConstraints>
+</GridPane>

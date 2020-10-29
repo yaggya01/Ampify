@@ -22,6 +22,7 @@ public class Login {
     public static String User;
     private static Socket socket;
     public void ListenerbBT(ActionEvent actionEvent){
+
         System.out.println("BACK");
         Parent root=null;
         Stage stage = (Stage) backBT.getScene().getWindow();
@@ -36,6 +37,28 @@ public class Login {
     public void ListenerlBT(ActionEvent actionEvent){
         System.out.println("USERNAME: "+userTF.getText()+"\nPASSWORD: "+passTF.getText());
         User = userTF.getText();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                long i =0;
+                while(i<24*60*60){
+                    i++;
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        Stage stage = (Stage) loginBT.getScene().getWindow();
+                        // do what you have to do
+                        stage.close();
+                    }
+                });
+            }
+        }).start();
         new Thread(new Runnable() {
             @Override
             public void run() {

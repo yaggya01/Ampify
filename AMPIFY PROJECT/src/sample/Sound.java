@@ -26,9 +26,11 @@ public class Sound extends PgSongs {
     public Button restartBT;
     public Button resumeBT;
     public Button startBT;
+    public Button jumpBT;
     public Label subLB;
     int currentFrame;
     public Slider volumeS;
+    public TextField jumpTF;
     public static BufferedInputStream in;
     public static BufferedReader in1;
     Clip clip;
@@ -248,6 +250,28 @@ public class Sound extends PgSongs {
         clip.start();
 
         status = "play";
+    }
+    public void lbtj(ActionEvent actionEvent) throws Exception{
+        int c = Integer.parseInt(jumpTF.getText());
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println(clip.getFrameLength());
+                if (c > 0 && c < clip.getFrameLength())
+                {
+                    clip.stop();
+                    clip.close();
+                    try {
+                        resetAudioStream();
+                    } catch (Exception e) {
+                       e.printStackTrace();
+                    }
+                    currentFrame = c;
+                    clip.setFramePosition(c);
+                    play();
+                }
+            }
+        }).start();
     }
 }
 

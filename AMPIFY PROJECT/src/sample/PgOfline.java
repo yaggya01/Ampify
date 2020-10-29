@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import File.*;
 import javafx.stage.FileChooser;
@@ -26,6 +27,9 @@ public class PgOfline {
     public static String musicf;
     public static String subf;
     public Button backBT;
+    public TextArea songsTA;
+    public TextField songTF;
+    public static String song;
     public void lbtm(ActionEvent actionEvent){
         FileChooser fc = new FileChooser();
         File f = fc.showOpenDialog(null);
@@ -105,5 +109,69 @@ public class PgOfline {
             e.printStackTrace();
         }
         stage.setScene(new Scene(root,600, 400));
+    }
+    public void lbtstart(ActionEvent actionEvent) throws Exception {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                String maindirpath = "C:\\Users\\dell\\AMPIFY PROJECT\\Songs";
+
+                // File object
+                File maindir = new File(maindirpath);
+
+                if(maindir.exists() && maindir.isDirectory())
+                {
+                    // array for files and sub-directories
+                    // of directory pointed by maindir
+                    File arr[] = maindir.listFiles();
+                    // Calling recursive method
+                    RecursivePrint(arr,0,0);
+                }
+            }
+            void RecursivePrint(File[] arr,int index,int level)
+            {
+                // terminate condition
+                if(index == arr.length)
+                    return;
+
+                // tabs for internal levels
+                for (int i = 0; i < level; i++)
+                    System.out.print("\t");
+
+                // for files
+                if(arr[index].isFile())
+                    songsTA.appendText(arr[index].getName()+"\n");
+
+                    // for sub-directories
+                else if(arr[index].isDirectory())
+                {
+                    songsTA.appendText("[" + arr[index].getName() + "]\n");
+
+                    // recursion for sub-directories
+                    RecursivePrint(arr[index].listFiles(), 0, level + 1);
+                }
+
+                // recursion for main directory
+                RecursivePrint(arr,++index, level);
+            }
+
+        }).start();
+    }
+    public void lbtplay(ActionEvent actionEvent){
+        song = "C:\\Users\\dell\\AMPIFY PROJECT\\Songs\\"+songTF.getText();
+        System.out.println(song);
+        Parent root=null;
+        Stage stage = (Stage) new Stage();
+        try{
+            root = FXMLLoader.load(getClass().getResource("./sound4.fxml"));
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+        stage.setScene(new Scene(root,400, 200));
+        stage.show();
+    }
+    public String getName(){
+        System.out.println(this.song);
+        return this.song;
     }
 }

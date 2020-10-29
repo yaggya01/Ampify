@@ -141,21 +141,18 @@ public class PlayPL extends Login{
 
             }
         }).start();
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    oi=new ObjectInputStream(socket.getInputStream());
-                    Message_Plalist m = (Message_Plalist) oi.readObject();
-                            for(int i=0;i<m.k;i++) {
-                                listTA.appendText(m.s[i] + "\n");
-                                System.out.println("i");
-                            }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-
+        new Thread(() -> {
+            try {
+                oi=new ObjectInputStream(socket.getInputStream());
+                Message_Plalist m = (Message_Plalist) oi.readObject();
+                        for(int i=0;i<m.k;i++) {
+                            listTA.appendText(m.s[i] + "\n");
+                            System.out.println("i");
+                        }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
+
         }).start();
     }
 }

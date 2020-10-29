@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="501.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Pg1">
+<AnchorPane prefHeight="624.0" prefWidth="590.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Pg1">
    <children>
       <Button fx:id="songBT" layoutX="63.0" layoutY="14.0" mnemonicParsing="false" onAction="#ListenerSongBT" prefHeight="71.0" prefWidth="463.0" text="ALL SONGS" />
       <Button fx:id="oflineBT" layoutX="63.0" layoutY="95.0" mnemonicParsing="false" onAction="#ListenerOfBT" prefHeight="71.0" prefWidth="463.0" text="OFFLINE SONG" />
@@ -11,5 +11,7 @@
       <Button fx:id="playBT" layoutX="63.0" layoutY="260.0" mnemonicParsing="false" onAction="#ListenerPBT" prefHeight="71.0" prefWidth="463.0" text="PLAYLIST" />
       <Button fx:id="historyBT" layoutX="63.0" layoutY="340.0" mnemonicParsing="false" onAction="#lbth" prefHeight="71.0" prefWidth="463.0" text="HISTORY" />
       <Button fx:id="editBT" layoutX="63.0" layoutY="419.0" mnemonicParsing="false" onAction="#Listeneredit" prefHeight="71.0" prefWidth="463.0" text="EDIT PLAYLIST" />
+      <Button fx:id="downloadBT" layoutX="63.0" layoutY="501.0" mnemonicParsing="false" onAction="#ListenerDBT" prefHeight="71.0" prefWidth="463.0" text="DOWNLOAD MUSIC OFLINE" />
+      <Button fx:id="logoutBT" layoutX="451.0" layoutY="584.0" mnemonicParsing="false" onAction="#lbtlo" prefHeight="51.0" prefWidth="132.0" text="LOGOUT" />
    </children>
 </AnchorPane>

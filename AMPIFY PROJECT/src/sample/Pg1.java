@@ -19,6 +19,21 @@ public class Pg1 {
     public Button playBT;
     public Button historyBT;
     public Button editBT;
+    public Button downloadBT;
+    public Button logoutBT;
+    public void ListenerDBT(ActionEvent actionEvent){
+        System.out.println("All Songs");
+        Parent root=null;
+        Stage stage = (Stage) songBT.getScene().getWindow();
+        try{
+            root = FXMLLoader.load(getClass().getResource("./download.fxml"));
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+        stage.setScene(new Scene(root,600, 400));
+    }
+
     public void ListenerSongBT(ActionEvent actionEvent){
         System.out.println("All Songs");
         Parent root=null;
@@ -94,6 +109,11 @@ public class Pg1 {
             e.printStackTrace();
         }
         stage.setScene(new Scene(root,600, 400));
+    }
+    public void lbtlo(ActionEvent actionEvent){
+        Stage stage = (Stage) logoutBT.getScene().getWindow();
+        // do what you have to do
+        stage.close();
     }
 }
 

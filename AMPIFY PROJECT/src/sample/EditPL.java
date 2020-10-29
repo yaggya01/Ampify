@@ -54,13 +54,52 @@ public class EditPL extends Login{
     }
 
     public void lbtd(ActionEvent actionEvent)throws Exception {
-        System.out.println("PLAYING");
+        System.out.println("Deleting");
         song = musicTF.getText();
-        String a = this.getUserName();
-        System.out.println("PLAYER");
-        Socket socket = new Socket("localHost",5402);
-        ObjectOutputStream op = new ObjectOutputStream(socket.getOutputStream());
-        
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                String a = getUserName()+'_'+listTF.getText();
+                System.out.println(a);
+                try {
+                    Socket socket = new Socket("localHost",5402);
+                    ObjectOutputStream op = new ObjectOutputStream(socket.getOutputStream());
+                    op.writeObject(new Message_Music(a,8));
+                    op.flush();
+                    op.writeObject(new Message_Music(song,8));
+                    op.flush();
+                    op.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }).start();
+
+    }
+    public void lbti(ActionEvent actionEvent)throws Exception {
+        System.out.println("INSERTING");
+        song = musicTF.getText();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                String a = getUserName()+'_'+listTF.getText();
+                System.out.println(a);
+                try {
+                    Socket socket = new Socket("localHost",5402);
+                    ObjectOutputStream op = new ObjectOutputStream(socket.getOutputStream());
+                    op.writeObject(new Message_Music(a,9));
+                    op.flush();
+                    op.writeObject(new Message_Music(song,9));
+                    op.flush();
+                    op.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }).start();
+
     }
     public String getName(){
         return song;

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Download">
+   <children>
+      <Button fx:id="backBT" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#lbtb" prefHeight="26.0" prefWidth="74.0" text="BACK" />
+      <TextArea fx:id="musicTA" layoutX="14.0" layoutY="40.0" prefHeight="270.0" prefWidth="318.0" />
+      <Button fx:id="startBT" layoutX="90.0" layoutY="14.0" mnemonicParsing="false" onAction="#lbts" prefHeight="26.0" prefWidth="512.0" text="START" />
+      <TextField fx:id="musicTF" layoutX="14.0" layoutY="310.0" prefHeight="40.0" prefWidth="403.0" />
+      <Button fx:id="downloadBT" layoutX="417.0" layoutY="310.0" mnemonicParsing="false" onAction="#lbtp" prefHeight="40.0" prefWidth="186.0" text="DOWLNOAD" />
+      <TextArea fx:id="songsTA" layoutX="332.0" layoutY="61.0" prefHeight="249.0" prefWidth="270.0" />
+      <Label layoutX="332.0" layoutY="40.0" text="Downloaded Music" />
+      <TextField fx:id="playTF" layoutX="14.0" layoutY="350.0" prefHeight="40.0" prefWidth="403.0" />
+      <Button fx:id="playBT" layoutX="417.0" layoutY="350.0" mnemonicParsing="false" onAction="#lbtplay" prefHeight="40.0" prefWidth="186.0" text="PLAY" />
+   </children>
+</AnchorPane>

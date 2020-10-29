@@ -30,6 +30,8 @@ public class PgSongs extends Login {
     public Button nextBT;
     public Button queueBT;
     public TextArea queueTA;
+    public Label mpLB;
+    public TextArea rpTA;
     public static String song;
     public static BufferedInputStream in;
     public static BufferedReader in1;
@@ -79,7 +81,7 @@ public class PgSongs extends Login {
         catch (IOException e){
             e.printStackTrace();
         }
-        stage.setScene(new Scene(root,300, 275));
+        stage.setScene(new Scene(root,400, 1000));
     }
     public void lbtl(ActionEvent actionEvent)throws Exception {
         System.out.println("Like Add");
@@ -89,7 +91,7 @@ public class PgSongs extends Login {
         op.flush();
         op.writeObject(new Message_Music(musicTF.getText(),0));
     }
-    public void lbts(ActionEvent actionEvent){
+    public void lbts(ActionEvent actionEvent) throws InterruptedException, IOException {
         System.out.println("starting");
 
         new Thread(new Runnable() {
@@ -113,6 +115,62 @@ public class PgSongs extends Login {
                 }
                 catch(Exception e)
                 {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Socket socket = new Socket("127.0.0.1", 5402);
+                    ObjectOutputStream op= new ObjectOutputStream(socket.getOutputStream());
+                    op.writeObject(new Message_Music(getUserName(),10));
+                    op.flush();
+                    ObjectInputStream oi = new ObjectInputStream(socket.getInputStream());
+                    Message_Music m = (Message_Music) oi.readObject();
+                    Platform.runLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            mpLB.setText(m.name);
+                        }
+                    });
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }).start();
+        final Socket socket = new Socket("127.0.0.1", 5402);
+        String a = getUserName();
+        new Thread(new Runnable() {
+            @Override
+            public void run(){
+                try {
+                    ObjectOutputStream op = new ObjectOutputStream(socket.getOutputStream());
+                    op.writeObject(new Message_Music(a,4));
+                    op.flush();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }).start();
+        Thread.sleep(500);
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try{
+                    ObjectInputStream oi = new ObjectInputStream(socket.getInputStream());
+                    while(true){
+                        Message_History m = (Message_History) oi.readObject();
+                        for(int j=0;j<4&&j<m.k;j++){
+                            rpTA.appendText(m.s[j]+"\n");
+                        }
+                    }
+                }
+                catch(Exception e){
                     e.printStackTrace();
                 }
             }
@@ -181,6 +239,7 @@ public class PgSongs extends Login {
             e.printStackTrace();
         }
         stage.setScene(new Scene(root,400, 200));
+        stage.setTitle(song);
         stage.show();
 
 

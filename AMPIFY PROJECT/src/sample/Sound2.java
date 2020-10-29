@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import javax.sound.sampled.*;
@@ -26,6 +27,8 @@ public class Sound2 extends PlayPL {
     Clip clip;
     public Label timeLB;
     public Slider timeBT;
+    public Button jumpBT;
+    public TextField jumpTF;
     // current status of clip
     String status;
     public static AudioInputStream audioInputStream;
@@ -49,7 +52,7 @@ public class Sound2 extends PlayPL {
         }).start();
 
     }
-    public void lbtsp(ActionEvent actionEvent){
+    public void lbts(ActionEvent actionEvent){
         new Thread(() -> {
             currentFrame = 0;
             clip.stop();
@@ -190,16 +193,11 @@ public class Sound2 extends PlayPL {
         return;
     }
     public void lbtstart(ActionEvent actionEvent) throws Exception{
-        BufferedInputStream l = this.getIStream();
-        System.out.println(l);
-        filePath = "C:\\Users\\dell\\Desktop\\I Don't Care.wav";
-        System.out.println("3");
-        audioInputStream =
-                AudioSystem.getAudioInputStream(l);
-        System.out.println("1");
+        audioInputStream = AudioSystem.getAudioInputStream(this.getIStream());
         // create clip reference
-
         clip = AudioSystem.getClip();
+        System.out.println("1");
+
 
         // open audioInputStream to the clip
         clip.open(audioInputStream);
@@ -251,6 +249,28 @@ public class Sound2 extends PlayPL {
         clip.start();
 
         status = "play";
+    }
+    public void lbtj(ActionEvent actionEvent) throws Exception{
+        int c = Integer.parseInt(jumpTF.getText());
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println(clip.getFrameLength());
+                if (c > 0 && c < clip.getFrameLength())
+                {
+                    clip.stop();
+                    clip.close();
+                    try {
+                        resetAudioStream();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    currentFrame = c;
+                    clip.setFramePosition(c);
+                    play();
+                }
+            }
+        }).start();
     }
 }
 

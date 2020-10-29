@@ -3,8 +3,12 @@ package sample;
 import Message.Message_History;
 import Message.Message_Music;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -18,6 +22,19 @@ import java.sql.ResultSet;
 public class History extends Login{
     public TextArea historTA;
     public Button startBT;
+    public Button backBT;
+    public void lbtb(ActionEvent actionEvent) throws Exception {
+        System.out.println("All Songs");
+        Parent root=null;
+        Stage stage = (Stage) backBT.getScene().getWindow();
+        try{
+            root = FXMLLoader.load(getClass().getResource("./pg1.fxml"));
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+        stage.setScene(new Scene(root,600, 700));
+    }
     public void lbts1(ActionEvent actionEvent) throws Exception {
         final Socket socket = new Socket("127.0.0.1", 5402);
         String a = getUserName();

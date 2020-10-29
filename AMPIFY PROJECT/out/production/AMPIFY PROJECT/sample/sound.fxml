@@ -5,7 +5,7 @@
 
 <GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Sound">
     <children>
-        <AnchorPane prefHeight="200.0" prefWidth="400.0">
+        <AnchorPane prefHeight="226.0" prefWidth="400.0" GridPane.rowIndex="1">
             <children>
                 <Button fx:id="pauseBT" layoutY="140.0" mnemonicParsing="false" onAction="#lbtp" prefHeight="40.0" prefWidth="100.0" text="PAUSE" />
                 <Button fx:id="resumeBT" layoutX="100.0" layoutY="140.0" mnemonicParsing="false" onAction="#lbtr" prefHeight="40.0" prefWidth="100.0" text="RESUME" />
@@ -16,6 +16,8 @@
                 <Slider fx:id="volumeS" layoutX="379.0" layoutY="59.0" orientation="VERTICAL" prefHeight="81.0" prefWidth="14.0" />
             <Label fx:id="subLB" layoutX="14.0" layoutY="5.0" prefHeight="26.0" prefWidth="362.0" />
             <Label fx:id="timeLB" layoutX="22.0" layoutY="100.0" prefHeight="18.0" prefWidth="48.0" />
+            <TextField fx:id="jumpTF" layoutX="176.0" layoutY="187.0" prefHeight="26.0" prefWidth="110.0" promptText="Jump To Time" />
+            <Button fx:id="jumpBT" layoutX="286.0" layoutY="187.0" mnemonicParsing="false" onAction="#lbtj" prefHeight="26.0" prefWidth="69.0" text="JUMP" />
             </children>
         </AnchorPane>
     </children>
@@ -24,5 +26,6 @@
     </columnConstraints>
     <rowConstraints>
         <RowConstraints />
+      <RowConstraints />
     </rowConstraints>
 </GridPane>

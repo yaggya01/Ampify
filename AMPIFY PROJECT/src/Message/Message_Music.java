@@ -9,7 +9,7 @@ public class Message_Music implements Serializable{
     private static final long serialVersionUID = 1L;
     public String name;
     public enum job{
-        song,sub,playlist_enter,playlist_send,history_send, history_receive, Like, Like_Add
+        song,sub,playlist_enter,playlist_send,history_send, history_receive, Like, Like_Add,delete, Insert, MostPlayed, Download
     }
     public job t;
     public Message_Music(String n,int j){
@@ -37,6 +37,18 @@ public class Message_Music implements Serializable{
         }
         else if (j==7){
             t = job.Like_Add;
+        }
+        else if(j==8){
+            t = job.delete;
+        }
+        else if(j==9){
+            t = job.Insert;
+        }
+        else if(j==10){
+            t = job.MostPlayed;
+        }
+        else if(j==11){
+            t = job.Download;
         }
     }
     public String toString(){
