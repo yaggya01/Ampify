@@ -25,8 +25,7 @@ public class Server_User{
             try{
                 socket = serversocket.accept();
                 System.out.println("Conected to Client: ");
-                ObjectOutputStream op = new ObjectOutputStream(socket.getOutputStream());
-                Thread t = new Thread(new HandleClient_Username(socket,op));
+                Thread t = new Thread(new HandleClient_Username(socket));
                 t.start();
             }
             catch(IOException e){

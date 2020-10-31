@@ -84,9 +84,6 @@ public class PlayPL extends Login{
         }
         stage.setScene(new Scene(root,400, 200));
         stage.show();
-
-
-
     }
     public String getName(){
         return song;

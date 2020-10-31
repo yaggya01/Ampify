@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Groupcreate">
+   <children>
+      <Button fx:id="backBT" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#lbtb" text="BACK" />
+      <Button fx:id="friendBT" layoutX="150.0" layoutY="14.0" mnemonicParsing="false" onAction="#lbtf" prefHeight="26.0" prefWidth="214.0" text="FRIENDS" />
+      <TextArea fx:id="friendTA" layoutX="14.0" layoutY="40.0" prefHeight="200.0" prefWidth="243.0" />
+      <TextArea fx:id="queueTA" layoutX="257.0" layoutY="40.0" prefHeight="200.0" prefWidth="200.0" />
+      <TextField fx:id="groupTF" layoutX="14.0" layoutY="240.0" prefHeight="40.0" prefWidth="301.0" promptText="GROUP NAME" />
+      <Button fx:id="groupBT" layoutX="316.0" layoutY="240.0" mnemonicParsing="false" onAction="#lbtg" prefHeight="40.0" prefWidth="138.0" text="ENTER" />
+      <TextField fx:id="friendTF" layoutX="14.0" layoutY="280.0" prefHeight="40.0" prefWidth="302.0" promptText="FRIEND NAME" />
+      <Button fx:id="nameBT" layoutX="316.0" layoutY="280.0" mnemonicParsing="false" onAction="#lbtn" prefHeight="40.0" prefWidth="138.0" text="ENTER" />
+      <Button fx:id="doneBT" layoutX="14.0" layoutY="320.0" mnemonicParsing="false" onAction="#lbtd" prefHeight="74.0" prefWidth="440.0" text="DONE" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="398.0" prefWidth="405.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Friend">
+   <children>
+      <Button fx:id="backBT" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#lbtb" text="BACK" />
+      <TextField fx:id="userTF" layoutX="5.0" layoutY="70.0" prefHeight="26.0" prefWidth="398.0" />
+      <Label layoutX="14.0" layoutY="46.0" text="USER NAME" />
+      <Button fx:id="userBT" layoutX="283.0" layoutY="105.0" mnemonicParsing="false" onAction="#lbtu" prefHeight="26.0" prefWidth="119.0" text="SEARCH USER" />
+      <Label fx:id="userLB" layoutX="179.0" layoutY="105.0" prefHeight="26.0" prefWidth="172.0" />
+      <TextArea fx:id="requestTA" layoutX="5.0" layoutY="154.0" prefHeight="200.0" prefWidth="200.0" />
+      <Label layoutX="46.0" layoutY="136.0" text="PENDING REQUEST" />
+      <Label layoutX="283.0" layoutY="136.0" text="FRIENDS" />
+      <TextArea fx:id="friendTA" layoutX="202.0" layoutY="154.0" prefHeight="200.0" prefWidth="200.0" />
+      <TextField fx:id="acceptTF" layoutX="5.0" layoutY="354.0" />
+      <Button fx:id="acceptBT" layoutX="153.0" layoutY="354.0" mnemonicParsing="false" onAction="#lbta" prefHeight="26.0" prefWidth="65.0" text="ACCEPT" />
+      <Button fx:id="startBT" layoutX="128.0" layoutY="14.0" mnemonicParsing="false" onAction="#lbts" prefHeight="26.0" prefWidth="172.0" text="START" />
+   </children>
+</AnchorPane>

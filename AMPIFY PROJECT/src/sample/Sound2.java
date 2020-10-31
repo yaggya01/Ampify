@@ -1,8 +1,15 @@
 package sample;
 
 import Message.Message_Music;
+import com.sun.scenario.Settings;
 import javafx.application.Platform;
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
+import javafx.beans.value.ChangeListener;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
@@ -19,25 +26,25 @@ public class Sound2 extends PlayPL {
     public Button restartBT;
     public Button resumeBT;
     public Button startBT;
+    public Button jumpBT;
     public Label subLB;
     int currentFrame;
     public Slider volumeS;
+    public TextField jumpTF;
     public static BufferedInputStream in;
     public static BufferedReader in1;
     Clip clip;
     public Label timeLB;
     public Slider timeBT;
-    public Button jumpBT;
-    public TextField jumpTF;
     // current status of clip
     String status;
-    public static AudioInputStream audioInputStream;
+    AudioInputStream audioInputStream;
     static String filePath;
 
     public Sound2() throws IOException {
     }
 
-    public void lbtpl(ActionEvent actionEvent){
+    public void lbtp(ActionEvent actionEvent){
         System.out.println("Pause");
         new Thread(() -> {
             if (status.equals("paused"))
@@ -196,8 +203,6 @@ public class Sound2 extends PlayPL {
         audioInputStream = AudioSystem.getAudioInputStream(this.getIStream());
         // create clip reference
         clip = AudioSystem.getClip();
-        System.out.println("1");
-
 
         // open audioInputStream to the clip
         clip.open(audioInputStream);

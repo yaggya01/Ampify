@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="655.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Group">
+   <children>
+      <Button fx:id="backBT" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#lbtb" prefHeight="26.0" prefWidth="62.0" text="BACK" />
+      <Button fx:id="startBT" layoutX="77.0" layoutY="14.0" mnemonicParsing="false" onAction="#lbts" prefHeight="26.0" prefWidth="390.0" text="START" />
+      <TextArea fx:id="groupnameTA" layoutX="14.0" layoutY="56.0" prefHeight="200.0" prefWidth="244.0" promptText="GROUP NAMES" />
+      <Button fx:id="enterBT" layoutX="173.0" layoutY="256.0" mnemonicParsing="false" onAction="#lbte" text="ENTER" />
+      <TextField fx:id="nameTF" layoutX="14.0" layoutY="256.0" prefHeight="26.0" prefWidth="160.0" promptText="Enter Name" />
+      <TextArea fx:id="playlistTA" layoutX="259.0" layoutY="56.0" prefHeight="200.0" prefWidth="222.0" promptText="PlayLists" />
+      <TextField fx:id="playlistTF" layoutX="259.0" layoutY="256.0" promptText="Enter Playlist Name" />
+      <Button fx:id="playlistBT" layoutX="423.0" layoutY="256.0" mnemonicParsing="false" onAction="#lbtplaylist" text="ENTER" />
+      <TextArea fx:id="songTA" layoutX="481.0" layoutY="56.0" prefHeight="200.0" prefWidth="160.0" promptText="Songs" />
+      <TextField fx:id="songTF" layoutX="481.0" layoutY="256.0" promptText="Song Name" />
+      <Button fx:id="playBT" layoutX="584.0" layoutY="282.0" mnemonicParsing="false" onAction="#lbtp" text="PLAY" />
+      <Button fx:id="cgroupBT" layoutX="468.0" layoutY="15.0" mnemonicParsing="false" onAction="#lbtc" prefHeight="26.0" prefWidth="116.0" text="CREATE GROUP" />
+      <Button fx:id="creatplBT" layoutX="14.0" layoutY="282.0" mnemonicParsing="false" onAction="#lbtcreate" prefHeight="26.0" prefWidth="210.0" text="CREATE PLAYLIST" />
+   </children>
+</AnchorPane>

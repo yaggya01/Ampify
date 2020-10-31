@@ -23,12 +23,14 @@ public class Pgcreate extends Login {
     public Button startBT;
     public TextArea musicTA;
     public Button doneBT;
+    public Button privateBT;
     public Button listBT;
     public static String s[]=new String[50];
     public static int i=0;
     public TextField nameTF;
     public TextField musicTF;
     public Socket socket;
+    public static int pri=0;
     ObjectOutputStream op;
     public void lbtb(ActionEvent actionEvent){
         System.out.println("All Songs");
@@ -42,7 +44,9 @@ public class Pgcreate extends Login {
         }
         stage.setScene(new Scene(root,400, 600));
     }
-
+    public void lbtprivate(ActionEvent actionEvent) {
+        pri = 1;
+    }
     public void lbts(ActionEvent actionEvent){
         System.out.println(s);
         new Thread(new Runnable() {
@@ -82,7 +86,7 @@ public class Pgcreate extends Login {
 
 
                 try {
-                    o.writeObject(new Message_Plalist(nameTF.getText(),s,i));
+                    o.writeObject(new Message_Plalist(nameTF.getText(),s,i,pri));
                     o.flush();
                 } catch (Exception e) {
                     e.printStackTrace();

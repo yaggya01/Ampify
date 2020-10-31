@@ -76,7 +76,7 @@ public class HandleClient_Music implements Runnable{
                     System.out.println(m.name);
                     String url = "jdbc:mysql://localhost:3306/Ampify";
                     Connection connection = DriverManager.getConnection(url, "root", "root");
-                    String q = "Insert into PLAYLIST_NAMES values(?,?,?)";
+                    String q = "Insert into PLAYLIST_NAMES values(?,?,?,?)";
                     PreparedStatement preSat = null;
                     try {
                         preSat = connection.prepareStatement(q);
@@ -84,6 +84,7 @@ public class HandleClient_Music implements Runnable{
                         Message_Plalist mi = (Message_Plalist) oi.readObject();
                         preSat.setString(2, mi.name);
                         preSat.setString(3, m.name + '_' + mi.name);
+                        preSat.setInt(4,mi.p);
                         System.out.println(q);
                         preSat.execute();
                         q = "Insert into PLAYLIST_SONGS values(?,?)";
@@ -242,7 +243,7 @@ public class HandleClient_Music implements Runnable{
                         l[i] = result.getString("NamePlayList");
                         i++;
                     }
-                    op.writeObject(new Message_Plalist(m.name, l, c));
+                    op.writeObject(new Message_Plalist(m.name, l, c,0));
                     op.flush();
                     String a = m.name;
                     m = (Message_Music) oi.readObject();
@@ -265,13 +266,13 @@ public class HandleClient_Music implements Runnable{
                         u[i] = result.getString("Song_Name");
                         i++;
                     }
-                    op.writeObject(new Message_Plalist(q, u, c));
+                    op.writeObject(new Message_Plalist(q, u, c,0));
                     op.flush();
                     op.close();
                 } else if (m.t == Message_Music.job.Like) {
                     String url = "jdbc:mysql://localhost:3306/Ampify";
                     Connection connection = DriverManager.getConnection(url, "root", "root");
-                    String q = "Insert into PLAYLIST_NAMES values(?,?,?)";
+                    String q = "Insert into PLAYLIST_NAMES values(?,?,?,?)";
                     System.out.println("like: " + q);
                     PreparedStatement preSat = null;
                     try {
@@ -279,6 +280,7 @@ public class HandleClient_Music implements Runnable{
                         preSat.setString(1, m.name);
                         preSat.setString(2, "Like");
                         preSat.setString(3, m.name + '_' + "Like");
+                        preSat.setInt(4, 1);
                         System.out.println(q);
                         preSat.execute();
                     } catch (Exception e) {
@@ -393,6 +395,90 @@ public class HandleClient_Music implements Runnable{
                         }}
 
 
+                }
+                else if (m.t == Message_Music.job.playlist_send_friend) {
+                    ObjectOutputStream op = new ObjectOutputStream(socket.getOutputStream());
+                    String url = "jdbc:mysql://localhost:3306/Ampify";
+                    Connection connection = DriverManager.getConnection(url, "root", "root");
+                    String q = "Select * from PLAYLIST_NAMES where UserName=";
+                    q = q + '"';
+                    q = q + m.name;
+                    q = q + '"';
+                    q = q + ';';
+                    System.out.println(q);
+                    PreparedStatement preSat;
+                    preSat = connection.prepareStatement(q);
+                    ResultSet result = preSat.executeQuery();
+                    int c = 0;
+                    while (result.next()) {
+                        if(result.getInt("Private")==0){
+                            c++;
+                        }
+                    }
+                    result = preSat.executeQuery();
+                    String l[] = new String[c];
+                    int i = 0;
+                    while (result.next()) {
+                        if(result.getInt("Private")==0){
+                            l[i] = result.getString("NamePlayList");
+                            i++;
+                        }
+                    }
+                    op.writeObject(new Message_Plalist(m.name, l, c,0));
+                    op.flush();
+                    String a = m.name;
+                    m = (Message_Music) oi.readObject();
+                    q = "Select * from PLAYLIST_SONGS where ID=";
+                    q = q + '"';
+                    q = q + (a + '_' + m.name);
+                    q = q + '"';
+                    q = q + ';';
+                    System.out.println(q);
+                    preSat = connection.prepareStatement(q);
+                    result = preSat.executeQuery();
+                    c = 0;
+                    while (result.next()) {
+                        c++;
+                    }
+                    result = preSat.executeQuery();
+                    String u[] = new String[c];
+                    i = 0;
+                    while (result.next()) {
+                        u[i] = result.getString("Song_Name");
+                        i++;
+                    }
+                    op.writeObject(new Message_Plalist(q, u, c,0));
+                    op.flush();
+                    op.close();
+                }
+                else if(m.t == Message_Music.job.song_send_friend){
+                    ObjectOutputStream op = new ObjectOutputStream(socket.getOutputStream());
+                    String url = "jdbc:mysql://localhost:3306/Ampify";
+                    Connection connection = DriverManager.getConnection(url, "root", "root");
+                    String a = m.name;
+                    Message_Music mi = (Message_Music) oi.readObject();
+                    String q = "Select * from PLAYLIST_SONGS where ID=";
+                    q = q + '"';
+                    q = q + (a + '_' + mi.name);
+                    q = q + '"';
+                    q = q + ';';
+                    System.out.println(q);
+                    PreparedStatement preSat = connection.prepareStatement(q);
+                    ResultSet result = preSat.executeQuery();
+                    int c = 0;
+                    while (result.next()) {
+                        c++;
+                    }
+                    result = preSat.executeQuery();
+                    String u[] = new String[c];
+                    int i = 0;
+                    while (result.next()) {
+                        u[i] = result.getString("Song_Name");
+                        i++;
+                    }
+                    op.writeObject(new Message_Plalist(q, u, c,0));
+                    op.flush();
+                    op.close();
                 }
             }
             catch(Exception e){

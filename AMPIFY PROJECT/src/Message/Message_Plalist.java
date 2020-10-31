@@ -9,7 +9,9 @@ public class Message_Plalist implements Serializable {
     public String[] s;
     public String name;
     public int k;
-    public Message_Plalist( String n,String[] a,int i){
+    public int p;
+    public Message_Plalist( String n,String[] a,int i,int l){
+        p=l;
         k =i ;
         name = n;
         s = new String[i];

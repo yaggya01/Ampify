@@ -77,7 +77,7 @@ public class Signup {
                 }
             }
             public void sendMessage(Socket socket, BufferedReader in, String name, String password,String email, ObjectOutputStream op)throws IOException{
-                op.writeObject(new Message(name,password,email,1));
+                op.writeObject(new Message(name,password,email,1,0));
                 op.flush();
                 System.out.println("Client closed");
             }

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="560.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.FriendPL">
+   <children>
+      <Button fx:id="backBT" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#lbtb" prefHeight="26.0" prefWidth="53.0" text="BACK" />
+      <Button fx:id="startBT" layoutX="66.0" layoutY="14.0" mnemonicParsing="false" onAction="#lbts" prefHeight="26.0" prefWidth="487.0" text="START" />
+      <TextArea fx:id="friendTA" layoutX="14.0" layoutY="40.0" prefHeight="152.0" prefWidth="294.0" />
+      <TextArea fx:id="listTA" layoutX="14.0" layoutY="192.0" prefHeight="152.0" prefWidth="294.0" />
+      <TextArea fx:id="songTA" layoutX="310.0" layoutY="40.0" prefHeight="301.0" prefWidth="242.0" />
+      <TextField fx:id="songTF" layoutX="14.0" layoutY="424.0" prefHeight="39.0" prefWidth="424.0" promptText="ENTER SONG" />
+      <Button fx:id="playBT" layoutX="438.0" layoutY="424.0" mnemonicParsing="false" onAction="#lbtp" prefHeight="39.0" prefWidth="114.0" text="PLAY" />
+      <TextField fx:id="enterTF" layoutX="14.0" layoutY="346.0" prefHeight="39.0" prefWidth="424.0" promptText="ENTER FRIEND NAME" />
+      <Button fx:id="enterBT" layoutX="438.0" layoutY="344.0" mnemonicParsing="false" onAction="#lbte" prefHeight="39.0" prefWidth="114.0" text="ENTER FRIEND &#10;        NAME" />
+      <TextField fx:id="nameTF" layoutX="14.0" layoutY="385.0" prefHeight="39.0" prefWidth="424.0" promptText="ENTER PLAYLIST" />
+      <Button fx:id="nameBT" layoutX="438.0" layoutY="383.0" mnemonicParsing="false" onAction="#lbtn" prefHeight="39.0" prefWidth="114.0" text="ENTER NAME" />
+   </children>
+</AnchorPane>

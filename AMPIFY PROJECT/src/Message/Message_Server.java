@@ -18,10 +18,14 @@ public class Message_Server implements Serializable{
         {
             n = "USERNOT FOUND";
         }
-        else
+        else if(m==2)
         {
             n = "Password Incorrect";
         }
+        else if(m==3){
+            n= "User Found Request Send";
+        }
+
     }
     public String toString(){
         return String.format("BOOL");

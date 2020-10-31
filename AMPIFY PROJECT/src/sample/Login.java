@@ -125,7 +125,7 @@ public class Login {
                 }
             }
             public void sendMessage(Socket socket, BufferedReader in, String name,String password,ObjectOutputStream op)throws IOException{
-                op.writeObject(new Message(name,password,null,0));
+                op.writeObject(new Message(name,password,null,0,0));
                 op.flush();
                 System.out.println("Client closed");
             }

@@ -12,15 +12,18 @@ import javafx.stage.Stage;
 import java.io.*;
 import java.net.Socket;
 
-public class Pg1 {
+public class Pg1 extends Login {
     public Button songBT;
     public Button oflineBT;
     public Button createBT;
     public Button playBT;
     public Button historyBT;
     public Button editBT;
+    public Button groupBT;
     public Button downloadBT;
     public Button logoutBT;
+    public Button friendBT;
+    public Button friendPlaylistBT;
     public void ListenerDBT(ActionEvent actionEvent){
         System.out.println("All Songs");
         Parent root=null;
@@ -114,6 +117,39 @@ public class Pg1 {
         Stage stage = (Stage) logoutBT.getScene().getWindow();
         // do what you have to do
         stage.close();
+    }
+    public void lbtf(ActionEvent actionEvent) throws Exception {
+        Parent root=null;
+        Stage stage = (Stage) friendBT.getScene().getWindow();
+        try{
+            root = FXMLLoader.load(getClass().getResource("./friend.fxml"));
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+        stage.setScene(new Scene(root,400, 200));
+    }
+    public void lbtfpl(ActionEvent actionEvent){
+        Parent root=null;
+        Stage stage = (Stage) friendPlaylistBT.getScene().getWindow();
+        try{
+            root = FXMLLoader.load(getClass().getResource("./friendPL.fxml"));
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+        stage.setScene(new Scene(root,600, 400));
+    }
+    public void lbtg(ActionEvent actionEvent) throws Exception {
+        Parent root=null;
+        Stage stage = (Stage) friendPlaylistBT.getScene().getWindow();
+        try{
+            root = FXMLLoader.load(getClass().getResource("./group.fxml"));
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+        stage.setScene(new Scene(root,600, 400));
     }
 }
 
