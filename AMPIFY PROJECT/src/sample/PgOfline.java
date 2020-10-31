@@ -30,6 +30,7 @@ public class PgOfline {
     public TextArea songsTA;
     public TextField songTF;
     public static String song;
+    //Listener function of Button enter mp3 song
     public void lbtm(ActionEvent actionEvent){
         FileChooser fc = new FileChooser();
         File f = fc.showOpenDialog(null);
@@ -37,7 +38,7 @@ public class PgOfline {
             musicf = f.getAbsolutePath();
         }
     }
-
+    //Listener function of Button enter subtitles file
     public void lbts(ActionEvent actionEvent){
         FileChooser fc = new FileChooser();
         File f = fc.showOpenDialog(null);
@@ -45,7 +46,7 @@ public class PgOfline {
             subf = f.getAbsolutePath();
         }
     }
-
+    //Listener function of Button play
     public void lbtp(ActionEvent actionEvent){
         System.out.println("starting");
         new Thread(new Runnable() {
@@ -98,6 +99,7 @@ public class PgOfline {
             }
         }).start();
     }
+    //Listener function of Button back
     public void lbtb(ActionEvent actionEvent){
         System.out.println("BACK");
         Parent root=null;
@@ -110,6 +112,7 @@ public class PgOfline {
         }
         stage.setScene(new Scene(root,600, 400));
     }
+    //Listener function of Button start to print name of files
     public void lbtstart(ActionEvent actionEvent) throws Exception {
         new Thread(new Runnable() {
             @Override
@@ -157,6 +160,7 @@ public class PgOfline {
 
         }).start();
     }
+    //Listener function of Button play mp3
     public void lbtplay(ActionEvent actionEvent){
         song = "C:\\Users\\dell\\AMPIFY PROJECT\\Songs\\"+songTF.getText();
         System.out.println(song);

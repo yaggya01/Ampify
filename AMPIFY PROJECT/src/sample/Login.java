@@ -21,6 +21,7 @@ public class Login {
     public Label label;
     public static String User;
     private static Socket socket;
+    //Listener function of Button back
     public void ListenerbBT(ActionEvent actionEvent){
 
         System.out.println("BACK");
@@ -34,6 +35,7 @@ public class Login {
         }
         stage.setScene(new Scene(root,300, 275));
     }
+    //Listener function of Button login
     public void ListenerlBT(ActionEvent actionEvent){
         System.out.println("USERNAME: "+userTF.getText()+"\nPASSWORD: "+passTF.getText());
         User = userTF.getText();

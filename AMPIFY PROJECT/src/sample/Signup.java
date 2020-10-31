@@ -17,6 +17,8 @@ public class Signup {
     public TextField userTF;
     public TextField emailTF;
     public TextField passTF;
+    public static String name;
+    //Listener function of Button back
     public void ListenerbBT(ActionEvent actionEvent){
         System.out.println("BACK");
         Parent root=null;
@@ -29,6 +31,7 @@ public class Signup {
         }
         stage.setScene(new Scene(root,300, 275));
     }
+    //Listener function of Button signup
     public void ListenersBT(ActionEvent actionEvent){
         System.out.println("Signup");
         new Thread(new Runnable() {
@@ -51,7 +54,7 @@ public class Signup {
                 try {
                     BufferedReader in = new BufferedReader (new InputStreamReader(System.in));
                     Socket socket = new Socket("localhost",5400);//ip adress and port
-                    String name = userTF.getText();
+                    name = userTF.getText();
                     String password = passTF.getText();
                     String email = emailTF.getText();
                     ObjectOutputStream op = new ObjectOutputStream(socket.getOutputStream());
@@ -63,7 +66,7 @@ public class Signup {
                             Parent root=null;
                             Stage stage = (Stage) signBT.getScene().getWindow();
                             try{
-                                root = FXMLLoader.load(getClass().getResource("./sample.fxml"));
+                                root = FXMLLoader.load(getClass().getResource("./signselect.fxml"));
                             }
                             catch (IOException e){
                                 e.printStackTrace();
@@ -82,5 +85,8 @@ public class Signup {
                 System.out.println("Client closed");
             }
         }).start();
+    }
+    public static String getname(){
+        return name;
     }
 }

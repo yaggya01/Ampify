@@ -25,6 +25,7 @@ public class Friend extends Pg1 {
     public TextArea friendTA;
     public Button startBT;
     public Button acceptBT;
+    //Listener function of Button accept
     public void lbta(ActionEvent actionEvent)throws Exception{
         String a = acceptTF.getText();
         new Thread(new Runnable() {
@@ -45,6 +46,7 @@ public class Friend extends Pg1 {
             }
         }).start();
     }
+    //Listener function of Button back
     public void lbtb(ActionEvent actionEvent)throws Exception{
         System.out.println("All Songs");
         Parent root=null;
@@ -57,6 +59,7 @@ public class Friend extends Pg1 {
         }
         stage.setScene(new Scene(root,600, 800));
     }
+    //Listener function of Button send request
     public void lbtu(ActionEvent actionEvent)throws Exception{
         String a = userTF.getText();
         new Thread(new Runnable() {
@@ -88,6 +91,7 @@ public class Friend extends Pg1 {
             }
         }).start();
     }
+    //Listener function of Button start print friends name and requests
     public void lbts(ActionEvent actionEvent) throws Exception {
         Socket socket = new Socket("localhost",5400);
         new Thread(new Runnable() {

@@ -40,6 +40,7 @@ public class Sound extends PgSongs {
     String status;
     AudioInputStream audioInputStream;
     static String filePath;
+    //Listener function of Button pause
     public void lbtp(ActionEvent actionEvent){
         System.out.println("Pause");
         new Thread(() -> {
@@ -55,6 +56,7 @@ public class Sound extends PgSongs {
         }).start();
 
     }
+    //Listener function of Button stop
     public void lbts(ActionEvent actionEvent){
         new Thread(() -> {
             currentFrame = 0;
@@ -70,6 +72,7 @@ public class Sound extends PgSongs {
         }).start();
 
     }
+    //Listener function of Button resume
     public void lbtr(ActionEvent actionEvent) {
         System.out.println("Resume");
         new Thread(() -> {
@@ -90,6 +93,7 @@ public class Sound extends PgSongs {
         }).start();
 
     }
+    //Listener function of Button restart
     public void lbtre(ActionEvent actionEvent) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
         System.out.println("Restart");
         new Thread(() -> {
@@ -195,6 +199,7 @@ public class Sound extends PgSongs {
         op.flush();
         return;
     }
+    //Listener function of Button start
     public void lbtstart(ActionEvent actionEvent) throws Exception{
         audioInputStream = AudioSystem.getAudioInputStream(this.getIStream());
         // create clip reference
@@ -243,6 +248,7 @@ public class Sound extends PgSongs {
         float dB = (float) (Math.log(gain) / Math.log(10.0) * 20.0);
         gainControl.setValue(dB);
         this.play();
+        jumpTF.setPromptText(String.valueOf(clip.getFrameLength()));
     }
     public void play()
     {
@@ -251,6 +257,7 @@ public class Sound extends PgSongs {
 
         status = "play";
     }
+    //Listener function of Button jump to
     public void lbtj(ActionEvent actionEvent) throws Exception{
         int c = Integer.parseInt(jumpTF.getText());
         new Thread(new Runnable() {

@@ -39,7 +39,7 @@ public class EditPL extends Login{
     public EditPL() throws IOException {
         socket = new Socket("localhost",5402);
     }
-
+    //Listener function of Button back
     public void lbtb(ActionEvent actionEvent){
         System.out.println("All Songs");
         Parent root=null;
@@ -52,7 +52,7 @@ public class EditPL extends Login{
         }
         stage.setScene(new Scene(root,300, 275));
     }
-
+    //Listener function of Button done
     public void lbtd(ActionEvent actionEvent)throws Exception {
         System.out.println("Deleting");
         song = musicTF.getText();
@@ -77,6 +77,7 @@ public class EditPL extends Login{
         }).start();
 
     }
+    //Listener function of Button insert
     public void lbti(ActionEvent actionEvent)throws Exception {
         System.out.println("INSERTING");
         song = musicTF.getText();
@@ -104,6 +105,7 @@ public class EditPL extends Login{
     public String getName(){
         return song;
     }
+    //Listener function of Button name of playlist
     public void lbtn(ActionEvent actionEvent)throws Exception {
         String a = listTF.getText();
         new Thread(new Runnable() {
@@ -135,6 +137,7 @@ public class EditPL extends Login{
             }
         }).start();
     }
+    //Listener function of Button start
     public void lbts(ActionEvent actionEvent) throws Exception {
         String a = getUserName();
         System.out.println("i");

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="326.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Signselect">
+   <children>
+      <Label layoutX="14.0" layoutY="14.0" text="LANGUAGE">
+         <font>
+            <Font size="26.0" />
+         </font></Label>
+      <TextField fx:id="languageTF" layoutX="14.0" layoutY="52.0" prefHeight="38.0" prefWidth="228.0" />
+      <Button fx:id="languageBT" layoutX="242.0" layoutY="52.0" mnemonicParsing="false" onAction="#lbtl" prefHeight="38.0" prefWidth="80.0" text="ENTER" />
+      <Label layoutX="14.0" layoutY="90.0" text="ARTIST">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <TextField fx:id="artistTF" layoutX="14.0" layoutY="128.0" prefHeight="38.0" prefWidth="228.0" />
+      <Button fx:id="artistBT" layoutX="242.0" layoutY="128.0" mnemonicParsing="false" onAction="#lbta" prefHeight="38.0" prefWidth="80.0" text="ENTER" />
+      <Label layoutX="14.0" layoutY="166.0" prefHeight="38.0" prefWidth="132.0" text="GERNERS">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <TextField fx:id="gernersTF" layoutX="14.0" layoutY="200.0" prefHeight="38.0" prefWidth="228.0" />
+      <Button fx:id="gernersBT" layoutX="242.0" layoutY="200.0" mnemonicParsing="false" onAction="#lbtg" prefHeight="38.0" prefWidth="80.0" text="ENTER" />
+      <Button fx:id="doneBT" layoutX="14.0" layoutY="257.0" mnemonicParsing="false" onAction="#lbtd" prefHeight="75.0" prefWidth="304.0" text="DONE">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

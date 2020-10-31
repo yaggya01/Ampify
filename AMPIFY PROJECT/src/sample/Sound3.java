@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import javax.sound.sampled.*;
@@ -18,9 +19,11 @@ public class Sound3 extends Download {
     public Button restartBT;
     public Button resumeBT;
     public Button startBT;
+    public Button jumpBT;
     public Label subLB;
     int currentFrame;
     public Slider volumeS;
+    public TextField jumpTF;
     public static BufferedInputStream in;
     public static BufferedReader in1;
     Clip clip;
@@ -30,6 +33,7 @@ public class Sound3 extends Download {
     String status;
     AudioInputStream audioInputStream;
     static String filePath;
+    //Listener function of Button pause
     public void lbtp(ActionEvent actionEvent){
         System.out.println("Pause");
         new Thread(() -> {
@@ -45,6 +49,7 @@ public class Sound3 extends Download {
         }).start();
 
     }
+    //Listener function of Button stop
     public void lbts(ActionEvent actionEvent){
         new Thread(() -> {
             currentFrame = 0;
@@ -60,6 +65,7 @@ public class Sound3 extends Download {
         }).start();
 
     }
+    //Listener function of Button resume
     public void lbtr(ActionEvent actionEvent) {
         System.out.println("Resume");
         new Thread(() -> {
@@ -80,6 +86,7 @@ public class Sound3 extends Download {
         }).start();
 
     }
+    //Listener function of Button restart
     public void lbtre(ActionEvent actionEvent) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
         System.out.println("Restart");
         new Thread(() -> {
@@ -107,6 +114,7 @@ public class Sound3 extends Download {
 
         String c = getName();
         System.out.println(c);
+        System.out.println(c);
         File sf = new File(c).getAbsoluteFile();
         return sf;
     }
@@ -118,7 +126,7 @@ public class Sound3 extends Download {
         op.flush();
         return;
     }
-    public void lbtstart(ActionEvent actionEvent) throws Exception{
+    public void lbtstart(ActionEvent actionEvent)throws Exception{
         audioInputStream = AudioSystem.getAudioInputStream(this.getIStream());
         // create clip reference
         clip = AudioSystem.getClip();
@@ -165,6 +173,7 @@ public class Sound3 extends Download {
         float dB = (float) (Math.log(gain) / Math.log(10.0) * 20.0);
         gainControl.setValue(dB);
         this.play();
+        jumpTF.setPromptText(String.valueOf(clip.getFrameLength()));
     }
     public void play()
     {
@@ -172,6 +181,28 @@ public class Sound3 extends Download {
         clip.start();
 
         status = "play";
+    }
+    public void lbtj(ActionEvent actionEvent) throws Exception{
+        int c = Integer.parseInt(jumpTF.getText());
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println(clip.getFrameLength());
+                if (c > 0 && c < clip.getFrameLength())
+                {
+                    clip.stop();
+                    clip.close();
+                    try {
+                        resetAudioStream();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    currentFrame = c;
+                    clip.setFramePosition(c);
+                    play();
+                }
+            }
+        }).start();
     }
 }
 

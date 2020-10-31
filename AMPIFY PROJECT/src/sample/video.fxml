@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="211.0" prefWidth="225.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Video">
+    <children>
+    <Label layoutX="7.0" layoutY="38.0" prefHeight="38.0" prefWidth="210.0" text="Enter Location Of Video In The System" />
+    <Button fx:id="playBT" layoutX="46.0" layoutY="137.0" mnemonicParsing="false" onAction="#lbtp" prefHeight="50.0" prefWidth="118.0" text="PLAY" />
+    <Button fx:id="musicBT" layoutX="46.0" layoutY="76.0" mnemonicParsing="false" onAction="#lbtm" prefHeight="50.0" prefWidth="118.0" text="CHOSE FILE" />
+      <Button fx:id="backBT" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#lbtb" text="BACK" />
+    </children>
+</AnchorPane>

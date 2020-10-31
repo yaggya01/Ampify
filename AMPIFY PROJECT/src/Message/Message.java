@@ -6,7 +6,7 @@ public class Message implements Serializable{
      *
      */
     public enum job{
-        login,friendrequest,friendrequestlist,friendList, accept, groups, group_playlist, group_playlist_song, new_group, new_playlist
+        login,friendrequest,friendrequestlist,friendList, accept, groups, group_playlist, group_playlist_song, new_group, new_playlist, select
     }
     private static final long serialVersionUID = 1L;
     public String name;
@@ -48,6 +48,9 @@ public class Message implements Serializable{
         }
         else if(j==9){
             t = job.new_playlist;
+        }
+        else if(j==10){
+            t = job.select;
         }
     }
     public String toString(){

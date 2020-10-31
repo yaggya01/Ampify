@@ -32,6 +32,7 @@ public class Pgcreate extends Login {
     public Socket socket;
     public static int pri=0;
     ObjectOutputStream op;
+    //Listener function of Button back
     public void lbtb(ActionEvent actionEvent){
         System.out.println("All Songs");
         Parent root=null;
@@ -44,9 +45,11 @@ public class Pgcreate extends Login {
         }
         stage.setScene(new Scene(root,400, 600));
     }
+    //Listener function of Button make to private
     public void lbtprivate(ActionEvent actionEvent) {
         pri = 1;
     }
+    //Listener function of Button start
     public void lbts(ActionEvent actionEvent){
         System.out.println(s);
         new Thread(new Runnable() {
@@ -76,7 +79,7 @@ public class Pgcreate extends Login {
         }).start();
     }
 
-
+    //Listener function of Button done
     public void lbtd(ActionEvent actionEvent){
         System.out.println("Create");
         ObjectOutputStream o = this.op;
@@ -96,12 +99,13 @@ public class Pgcreate extends Login {
         }).start();
 
     }
-
+    //Listener function of Button enter name of play list
     public void lbtl(ActionEvent actionEvent)throws Exception {
         socket = new Socket("127.0.0.1", 5402);
         op = new ObjectOutputStream(socket.getOutputStream());
         op.writeObject(new Message_Music(getUserName(),1));
     }
+    //Listener function of Button enter Music
     public void lbtm(ActionEvent actionEvent)throws Exception {
         s[i]=musicTF.getText();
         i++;

@@ -12,6 +12,7 @@ import java.io.IOException;
 public class Controller {
     public Button loginBT;
     public Button signBT;
+    //Listener function of Button Login
     public void ListenerLBT(ActionEvent actionEvent){
         System.out.println("LOGIN");
         Parent root=null;
@@ -24,6 +25,7 @@ public class Controller {
         }
         stage.setScene(new Scene(root,600, 400));
     }
+    //Listener function of Button Signup
     public void ListenerSBT(ActionEvent actionEvent){
         System.out.println("SIGNUP");
         Parent root=null;

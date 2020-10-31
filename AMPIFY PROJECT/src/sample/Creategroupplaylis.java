@@ -30,16 +30,18 @@ public class Creategroupplaylis extends Group{
     public static String s[]=new String[50];
     public static int i=0;
     ObjectOutputStream op;
+    //Listener function of Button music add button
     public void lbtm(ActionEvent actionEvent) {
         s[i]=musicTF.getText();
         i++;
     }
+    //Listener function of Button list name button
     public void lbtl(ActionEvent actionEvent) throws Exception {
         socket = new Socket("127.0.0.1", 5400);
         op = new ObjectOutputStream(socket.getOutputStream());
         op.writeObject(new Message(getgroupName(),getUserName(),nameTF.getText(),0,9));
     }
-
+    //Listener function of Button back
     public void lbtb(ActionEvent actionEvent) {
         System.out.println("All Songs");
         Parent root=null;
@@ -52,7 +54,7 @@ public class Creategroupplaylis extends Group{
         }
         stage.setScene(new Scene(root,600, 700));
     }
-
+    //Listener function of Button start
     public void lbts(ActionEvent actionEvent){
         new Thread(new Runnable() {
             @Override
@@ -80,7 +82,7 @@ public class Creategroupplaylis extends Group{
             }
         }).start();
     }
-
+    //Listener function of Button done
     public void lbtd(ActionEvent actionEvent) {
         System.out.println("Create");
         ObjectOutputStream o = this.op;

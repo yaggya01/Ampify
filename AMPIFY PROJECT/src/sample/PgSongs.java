@@ -36,6 +36,7 @@ public class PgSongs extends Login {
     public static BufferedInputStream in;
     public static BufferedReader in1;
     public static Deque<String> deque = new LinkedList<String>();
+    //Listener function of Button next button
     public void lbtn(ActionEvent actionEvent) throws Exception {
         song = deque.getFirst();
         String a = this.getUserName();
@@ -71,6 +72,7 @@ public class PgSongs extends Login {
         stage.show();
 
     }
+    //Listener function of Button back
     public void lbtb(ActionEvent actionEvent){
         System.out.println("All Songs");
         Parent root=null;
@@ -83,6 +85,7 @@ public class PgSongs extends Login {
         }
         stage.setScene(new Scene(root,400, 1000));
     }
+    //Listener function of Button like
     public void lbtl(ActionEvent actionEvent)throws Exception {
         System.out.println("Like Add");
         final Socket socket = new Socket("127.0.0.1", 5402);
@@ -91,6 +94,7 @@ public class PgSongs extends Login {
         op.flush();
         op.writeObject(new Message_Music(musicTF.getText(),0));
     }
+    //Listener function of Button start
     public void lbts(ActionEvent actionEvent) throws InterruptedException, IOException {
         System.out.println("starting");
 
@@ -205,7 +209,7 @@ public class PgSongs extends Login {
             }
         }).start();
     }
-
+    //Listener function of Button play songs
     public void lbtp(ActionEvent actionEvent)throws Exception {
         System.out.println("PLAYING");
         song = musicTF.getText();
@@ -245,6 +249,7 @@ public class PgSongs extends Login {
 
 
     }
+    //Listener function of Buttons enter queue
     public void lbtaq(ActionEvent actionEvent){
         deque.addFirst(musicTF.getText());
     }

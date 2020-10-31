@@ -30,6 +30,7 @@ public class Download {
     public TextField playTF;
     public TextArea songsTA;
     public static String song;
+    //Listener function of Button start
     public void lbts(javafx.event.ActionEvent actionEvent) throws InterruptedException, IOException {
         System.out.println("starting");
 
@@ -106,7 +107,7 @@ public class Download {
 
         }).start();
     }
-
+    //Listener function of Button back
     public void lbtb(javafx.event.ActionEvent actionEvent) {
         System.out.println("All Songs");
         Parent root=null;
@@ -119,6 +120,7 @@ public class Download {
         }
         stage.setScene(new Scene(root,600, 700));
     }
+    //Listener function of Button download
     public void lbtp(javafx.event.ActionEvent actionEvent) {
         String c = musicTF.getText();
         new Thread(new Runnable() {
@@ -168,6 +170,7 @@ public class Download {
 
 
     }
+    //Listener function of Button play
     public void lbtplay(javafx.event.ActionEvent actionEvent) throws IOException {
         song = "C:\\Users\\dell\\AMPIFY PROJECT\\Ofline_Song\\";
         song = song+playTF.getText();

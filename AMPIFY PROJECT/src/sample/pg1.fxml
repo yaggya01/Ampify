@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="854.0" prefWidth="590.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Pg1">
+<AnchorPane prefHeight="991.0" prefWidth="590.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Pg1">
    <children>
       <Button fx:id="songBT" layoutX="63.0" layoutY="14.0" mnemonicParsing="false" onAction="#ListenerSongBT" prefHeight="71.0" prefWidth="463.0" text="ALL SONGS" />
       <Button fx:id="oflineBT" layoutX="63.0" layoutY="95.0" mnemonicParsing="false" onAction="#ListenerOfBT" prefHeight="71.0" prefWidth="463.0" text="OFFLINE SONG" />
@@ -12,10 +12,11 @@
       <Button fx:id="historyBT" layoutX="63.0" layoutY="340.0" mnemonicParsing="false" onAction="#lbth" prefHeight="71.0" prefWidth="463.0" text="HISTORY" />
       <Button fx:id="editBT" layoutX="63.0" layoutY="419.0" mnemonicParsing="false" onAction="#Listeneredit" prefHeight="71.0" prefWidth="463.0" text="EDIT PLAYLIST" />
       <Button fx:id="downloadBT" layoutX="63.0" layoutY="501.0" mnemonicParsing="false" onAction="#ListenerDBT" prefHeight="71.0" prefWidth="463.0" text="DOWNLOAD MUSIC OFLINE" />
-      <Button fx:id="logoutBT" layoutX="394.0" layoutY="814.0" mnemonicParsing="false" onAction="#lbtlo" prefHeight="51.0" prefWidth="132.0" text="LOGOUT" />
+      <Button fx:id="logoutBT" layoutX="394.0" layoutY="925.0" mnemonicParsing="false" onAction="#lbtlo" prefHeight="51.0" prefWidth="132.0" text="LOGOUT" />
       <Button fx:id="friendBT" layoutX="63.0" layoutY="655.0" mnemonicParsing="false" onAction="#lbtf" prefHeight="71.0" prefWidth="463.0" text="FRIEND REQUEST" />
       <Button fx:id="friendPlaylistBT" layoutX="63.0" layoutY="579.0" mnemonicParsing="false" onAction="#lbtfpl" prefHeight="71.0" prefWidth="463.0" text="FRIEND PLAYLIST" />
       <Button fx:id="groupBT" layoutX="63.0" layoutY="733.0" mnemonicParsing="false" onAction="#lbtg" prefHeight="71.0" prefWidth="463.0" text="GROUP" />
       <Label fx:id="userLB" layoutX="14.0" layoutY="825.0" prefHeight="29.0" prefWidth="144.0" />
+      <Button fx:id="videoBT" layoutX="63.0" layoutY="812.0" mnemonicParsing="false" onAction="#lbtv" prefHeight="71.0" prefWidth="463.0" text="PLAY VIDEO" />
    </children>
 </AnchorPane>

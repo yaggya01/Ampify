@@ -359,6 +359,32 @@ public class HandleClient_Username implements Runnable{
                     }
 
                 }
+                else if(m.t==Message.job.select){
+                    PreparedStatement preSat;
+                    String url = "jdbc:mysql://localhost:3306/Ampify";
+                    Connection connection = DriverManager.getConnection(url, "root", "root");
+                    String q = "Update User set Language=";
+                    q=q+'"'+m.password+'"'+"Where UserName="+'"'+m.name+'"'+';';
+                    preSat = connection.prepareStatement(q);
+                    preSat.execute();
+                    String a="",b;
+                    int k=0;
+                    while(m.email.charAt(k)!='_'){
+                        a =a+m.email.charAt(k);
+                        k++;
+                    }
+                    int l = m.email.length();
+                    b = m.email.substring(k,l);
+
+                    q = "Update User set Artist=";
+                    q=q+'"'+a+'"'+"Where UserName="+'"'+m.name+'"'+';';
+                    preSat = connection.prepareStatement(q);
+                    preSat.execute();
+                    q = "Update User set Gerner=";
+                    q=q+'"'+b+'"'+"Where UserName="+'"'+m.name+'"'+';';
+                    preSat = connection.prepareStatement(q);
+                    preSat.execute();
+                }
             }
             catch(Exception e){
                     e.printStackTrace();

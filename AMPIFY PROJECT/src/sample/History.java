@@ -23,6 +23,7 @@ public class History extends Login{
     public TextArea historTA;
     public Button startBT;
     public Button backBT;
+    //Listener function of Button back
     public void lbtb(ActionEvent actionEvent) throws Exception {
         System.out.println("All Songs");
         Parent root=null;
@@ -35,6 +36,7 @@ public class History extends Login{
         }
         stage.setScene(new Scene(root,600, 700));
     }
+    //Listener function of Button start get history
     public void lbts1(ActionEvent actionEvent) throws Exception {
         final Socket socket = new Socket("127.0.0.1", 5402);
         String a = getUserName();

@@ -31,7 +31,7 @@ public class Group extends Pg1{
     public static String playlist[];
     public static String song;
     public static String groupname;
-
+    //Listener function of Button back
     public void lbtb(ActionEvent actionEvent) throws Exception {
         System.out.println("All Songs");
         Parent root=null;
@@ -44,6 +44,7 @@ public class Group extends Pg1{
         }
         stage.setScene(new Scene(root,600, 700));
     }
+    //Listener function of Button create group
     public void lbtc(ActionEvent actionEvent) throws Exception {
         System.out.println("All Songs");
         Parent root=null;
@@ -56,6 +57,7 @@ public class Group extends Pg1{
         }
         stage.setScene(new Scene(root,600, 700));
     }
+    //Listener function of Button start
     public void lbts(ActionEvent actionEvent) throws Exception {
         Socket socket = new Socket("localhost",5400);
         new Thread(new Runnable() {
@@ -94,6 +96,7 @@ public class Group extends Pg1{
         System.out.println(groupname);
         return groupname;
     }
+    //Listener function of Button enter group name
     public void lbte(ActionEvent actionEvent) throws Exception {
 
         Socket socket = new Socket("localhost",5400);
@@ -140,6 +143,7 @@ public class Group extends Pg1{
             }
         }).start();
     }
+    //Listener function of Button to select gropu playlist
     public void lbtplaylist(ActionEvent actionEvent) throws Exception {
         Socket socket = new Socket("localhost",5400);
         new Thread(new Runnable() {
@@ -190,6 +194,7 @@ public class Group extends Pg1{
     public String getName(){
         return song;
     }
+    //Listener function of Button playing
     public void lbtp(ActionEvent actionEvent)throws Exception {
         System.out.println("PLAYING");
         song = songTF.getText();
@@ -225,7 +230,7 @@ public class Group extends Pg1{
         stage.setScene(new Scene(root,400, 200));
         stage.show();
     }
-
+    //Listener function of Button create playlist in a pre existing group
     public void lbtcreate(ActionEvent actionEvent) {
         groupname = nameTF.getText();
         System.out.println(groupname);

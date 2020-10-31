@@ -23,7 +23,9 @@ public class Pg1 extends Login {
     public Button downloadBT;
     public Button logoutBT;
     public Button friendBT;
+    public Button videoBT;
     public Button friendPlaylistBT;
+    //Listener function of Button download
     public void ListenerDBT(ActionEvent actionEvent){
         System.out.println("All Songs");
         Parent root=null;
@@ -49,7 +51,7 @@ public class Pg1 extends Login {
         }
         stage.setScene(new Scene(root,600, 400));
     }
-
+    //Listener function of Button ofline songs
     public void ListenerOfBT(ActionEvent actionEvent){
         System.out.println("Offline Songs");
         Parent root=null;
@@ -62,7 +64,7 @@ public class Pg1 extends Login {
         }
         stage.setScene(new Scene(root,600, 400));
     }
-
+    //Listener function of Button create play list
     public void ListenerCBT(ActionEvent actionEvent) {
         System.out.println("Offline Songs");
         Parent root=null;
@@ -75,7 +77,7 @@ public class Pg1 extends Login {
         }
         stage.setScene(new Scene(root,600, 400));
     }
-
+    //Listener function of Button play a playlist
     public void ListenerPBT(ActionEvent actionEvent) {
         System.out.println("Offline Songs");
         Parent root=null;
@@ -88,7 +90,7 @@ public class Pg1 extends Login {
         }
         stage.setScene(new Scene(root,600, 400));
     }
-
+    //Listener function of Button history
     public void lbth(ActionEvent actionEvent){
         System.out.println("Offline Songs");
         Parent root=null;
@@ -101,6 +103,7 @@ public class Pg1 extends Login {
         }
         stage.setScene(new Scene(root,600, 400));
     }
+    //Listener function of Button edit playlist
     public void Listeneredit(ActionEvent actionEvent){
         System.out.println("Edit Playlist");
         Parent root=null;
@@ -113,11 +116,13 @@ public class Pg1 extends Login {
         }
         stage.setScene(new Scene(root,600, 400));
     }
+    //Listener function of Button logout
     public void lbtlo(ActionEvent actionEvent){
         Stage stage = (Stage) logoutBT.getScene().getWindow();
         // do what you have to do
         stage.close();
     }
+    //Listener function of Button friends
     public void lbtf(ActionEvent actionEvent) throws Exception {
         Parent root=null;
         Stage stage = (Stage) friendBT.getScene().getWindow();
@@ -129,6 +134,7 @@ public class Pg1 extends Login {
         }
         stage.setScene(new Scene(root,400, 200));
     }
+    //Listener function of Button friends playlist
     public void lbtfpl(ActionEvent actionEvent){
         Parent root=null;
         Stage stage = (Stage) friendPlaylistBT.getScene().getWindow();
@@ -140,11 +146,24 @@ public class Pg1 extends Login {
         }
         stage.setScene(new Scene(root,600, 400));
     }
+    //Listener function of Button group functions
     public void lbtg(ActionEvent actionEvent) throws Exception {
         Parent root=null;
         Stage stage = (Stage) friendPlaylistBT.getScene().getWindow();
         try{
             root = FXMLLoader.load(getClass().getResource("./group.fxml"));
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+        stage.setScene(new Scene(root,600, 400));
+    }
+    //Listener function of Button videos
+    public void lbtv(ActionEvent actionEvent) {
+        Parent root=null;
+        Stage stage = (Stage) videoBT.getScene().getWindow();
+        try{
+            root = FXMLLoader.load(getClass().getResource("./video.fxml"));
         }
         catch (IOException e){
             e.printStackTrace();

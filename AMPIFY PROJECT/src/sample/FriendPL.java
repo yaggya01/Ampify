@@ -27,6 +27,7 @@ public class FriendPL extends Pg1{
     public TextField nameTF;
     public TextField enterTF;
     public static String song;
+    //Listener function of Button start
     public void lbts(ActionEvent actionEvent) throws IOException {
         Socket socket1 = new Socket("localhost",5400);
 
@@ -65,6 +66,7 @@ public class FriendPL extends Pg1{
             }
         }).start();
     }
+    //Listener function of Button enter friend name
     public void lbte(ActionEvent actionEvent) throws IOException {
         String a = enterTF.getText();
         System.out.println("i");
@@ -101,6 +103,7 @@ public class FriendPL extends Pg1{
 
         }).start();
     }
+    //Listener function of Button play
     public void lbtp(ActionEvent actionEvent) throws IOException, InterruptedException {
         System.out.println("PLAYING");
         song = songTF.getText();
@@ -139,6 +142,7 @@ public class FriendPL extends Pg1{
     public String getName(){
         return song;
     }
+    //Listener function of Button playlist
     public void lbtn(ActionEvent actionEvent)throws Exception {
         String a = enterTF.getText();
         Socket socket = new Socket("localhost",5402);
@@ -174,6 +178,7 @@ public class FriendPL extends Pg1{
             }
         }).start();
     }
+    //Listener function of Button back
     public void lbtb(ActionEvent actionEvent) throws Exception {
         System.out.println("All Songs");
         Parent root=null;

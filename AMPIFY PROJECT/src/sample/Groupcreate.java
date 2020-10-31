@@ -23,6 +23,7 @@ public class Groupcreate extends Group {
     public TextField friendTF;
     public static String groupname;
     public static String users;
+    //Listener function of Button back
     public void lbtb(ActionEvent actionEvent){
         System.out.println("All Songs");
         Parent root=null;
@@ -35,6 +36,7 @@ public class Groupcreate extends Group {
         }
         stage.setScene(new Scene(root,300, 275));
     }
+    //Listener function of Button friends
     public void lbtf(ActionEvent actionEvent) throws Exception {
         Socket socket1 = new Socket("localhost",5400);
         users = getUserName()+';';
@@ -73,12 +75,15 @@ public class Groupcreate extends Group {
             }
         }).start();
     }
+    //Listener function of Button enter name of group
     public void lbtg(ActionEvent actionEvent) throws Exception {
         groupname = groupTF.getText();
     }
+    //Listener function of Button enter names of users
     public void lbtn(ActionEvent actionEvent) throws Exception {
         users = users+ friendTF.getText()+";";
     }
+    //Listener function of Button done
     public void lbtd(ActionEvent actionEvent) throws Exception {
         Socket socket = new Socket("localhost",5400);
         ObjectOutputStream op = new ObjectOutputStream(socket.getOutputStream());

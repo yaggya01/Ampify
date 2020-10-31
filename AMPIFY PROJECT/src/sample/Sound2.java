@@ -247,6 +247,7 @@ public class Sound2 extends PlayPL {
         float dB = (float) (Math.log(gain) / Math.log(10.0) * 20.0);
         gainControl.setValue(dB);
         this.play();
+        jumpTF.setPromptText(String.valueOf(clip.getFrameLength()));
     }
     public void play()
     {
