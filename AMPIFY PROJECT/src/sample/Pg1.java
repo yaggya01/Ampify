@@ -25,6 +25,8 @@ public class Pg1 extends Login {
     public Button friendBT;
     public Button videoBT;
     public Button friendPlaylistBT;
+    public Button localBT;
+
     //Listener function of Button download
     public void ListenerDBT(ActionEvent actionEvent){
         System.out.println("All Songs");
@@ -117,7 +119,8 @@ public class Pg1 extends Login {
         stage.setScene(new Scene(root,600, 400));
     }
     //Listener function of Button logout
-    public void lbtlo(ActionEvent actionEvent){
+    public void lbtlo(ActionEvent actionEvent) throws Exception {
+        getSocket().close();
         Stage stage = (Stage) logoutBT.getScene().getWindow();
         // do what you have to do
         stage.close();
@@ -164,6 +167,18 @@ public class Pg1 extends Login {
         Stage stage = (Stage) videoBT.getScene().getWindow();
         try{
             root = FXMLLoader.load(getClass().getResource("./video.fxml"));
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+        stage.setScene(new Scene(root,600, 400));
+    }
+
+    public void lbtlocal(ActionEvent actionEvent) {
+        Parent root=null;
+        Stage stage = (Stage) videoBT.getScene().getWindow();
+        try{
+            root = FXMLLoader.load(getClass().getResource("./songshare.fxml"));
         }
         catch (IOException e){
             e.printStackTrace();

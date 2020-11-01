@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="343.0" prefWidth="223.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Songshare">
+   <children>
+      <Button fx:id="sendBT" layoutX="12.0" layoutY="14.0" mnemonicParsing="false" onAction="#lbts" prefHeight="49.0" prefWidth="199.0" text="SEND" />
+      <TextField fx:id="songTF" layoutX="12.0" layoutY="241.0" />
+      <Button fx:id="playBT" layoutX="161.0" layoutY="241.0" mnemonicParsing="false" onAction="#lbtp" prefHeight="26.0" prefWidth="52.0" text="PLAY" />
+      <Button fx:id="recieveBT" layoutX="12.0" layoutY="278.0" mnemonicParsing="false" onAction="#lbtr" prefHeight="50.0" prefWidth="199.0" text="RECIEVE" />
+      <TextArea fx:id="songTA" layoutX="12.0" layoutY="68.0" prefHeight="173.0" prefWidth="200.0" />
+   </children>
+</AnchorPane>
